@@ -19,9 +19,7 @@ const { isCurrentUrl } = useCurrentUrl();
 </script>
 
 <template>
-    <SidebarGroup class="px-2 py-0">
-        <SidebarGroupLabel>Platform</SidebarGroupLabel>
-
+    <SidebarGroup class="px-2 pt-4">
         <CreateNewDropdown />
 
         <SidebarMenu>
@@ -30,7 +28,7 @@ const { isCurrentUrl } = useCurrentUrl();
                     as-child
                     :is-active="isCurrentUrl(item.href)"
                     :tooltip="item.title"
-                    class="text-gray-800 py-5 data-[active=true]:text-indigo-700 data-[active=true]:bg-indigo-100"
+                    class="py-5 text-gray-800 data-[active=true]:text-gray-700 data-[active=true]:font-medium"
                 >
                     <Link :href="item.href">
                         <component :is="item.icon" />
