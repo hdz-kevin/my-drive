@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 
@@ -10,5 +11,11 @@ Route::inertia('/', 'Welcome', [
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::inertia('dashboard', 'Dashboard')->name('dashboard');
 });
+
+Route::controller(FileController::class)
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::get('my-files', 'myFiles')->name('myFiles');
+    });
 
 require __DIR__.'/settings.php';

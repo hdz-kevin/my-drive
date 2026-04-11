@@ -25,7 +25,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'My Files',
-        href: '/',
+        href: '/my-files',
         icon: Home,
     },
     {
@@ -65,7 +65,7 @@ const footerNavItems: NavItem[] = [
             <SidebarMenu>
                 <SidebarMenuItem>
                     <SidebarMenuButton size="lg" as-child>
-                        <Link :href="dashboard()">
+                        <Link href="/my-files">
                             <AppLogo />
                         </Link>
                     </SidebarMenuButton>
