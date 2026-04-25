@@ -22,4 +22,12 @@ class File extends Model
     {
         return true;
     }
+
+    /**
+     * Check if the file is owned by the given user id.
+     */
+    public function isOwnedby(int|string|null $userId): bool
+    {
+        return $this->created_by == $userId;
+    }
 }
