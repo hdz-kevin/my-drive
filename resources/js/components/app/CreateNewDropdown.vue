@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Plus } from 'lucide-vue-next';
+import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -6,8 +8,14 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
-import { Plus } from 'lucide-vue-next';
+import { ref } from 'vue';
+import CreateFolderModal from './CreateFolderModal.vue';
+
+const createFolderModal = ref(false);
+
+const showCreateFolderModal = () => {
+    createFolderModal.value = true;
+}
 </script>
 
 <template>
@@ -22,10 +30,14 @@ import { Plus } from 'lucide-vue-next';
             </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent class="w-56" align="start">
-            <DropdownMenuItem class="h-9">New Folder</DropdownMenuItem>
+            <DropdownMenuItem @click="showCreateFolderModal" class="h-9 hover:cursor-pointer">
+                New Folder
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem class="h-9">Upload Files</DropdownMenuItem>
-            <DropdownMenuItem class="h-9">Upload Folder</DropdownMenuItem>
+            <DropdownMenuItem class="h-9 hover:cursor-pointer">Upload Files</DropdownMenuItem>
+            <DropdownMenuItem class="h-9 hover:cursor-pointer">Upload Folder</DropdownMenuItem>
         </DropdownMenuContent>
     </DropdownMenu>
+
+    <CreateFolderModal v-model="createFolderModal" />
 </template>
